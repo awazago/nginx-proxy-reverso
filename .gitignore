@@ -1,0 +1,11 @@
+# Ignorar pastas
+node_modules/
+mysql/  # Se você não quiser versionar os dados do MySQL
+
+# Ignorar arquivos específicos
+.env  # Arquivo de variáveis de ambiente (se você usar)
+*.log
+
+# Ignorar arquivos com extensões específicas
+*.tmp
+*.bak
