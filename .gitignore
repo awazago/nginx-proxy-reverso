@@ -1,5 +1,5 @@
 # Ignorar pastas
-node_modules/
+**/node_modules/
 mysql/  # Se você não quiser versionar os dados do MySQL
 
 # Ignorar arquivos específicos
