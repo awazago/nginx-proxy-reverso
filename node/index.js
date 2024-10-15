@@ -10,9 +10,24 @@ const config = {
 const mysql = require('mysql')
 const connection = mysql.createConnection(config)
 
-const sql = `INSERT INTO people(name) values('Adams')`
-connection.query(sql)
+// Comando SQL para criar a tabela people
+const sqlCreateTable = `CREATE TABLE IF NOT EXISTS people (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+)`;
 
+// Executa o comando para criar a tabela
+connection.query(sqlCreateTable, (err) => {
+    if (err) throw err;
+    console.log('Tabela "people" criada com sucesso!');
+
+    // Insere o nome "Adams" na tabela
+    const sqlInsert = `INSERT INTO people(name) values('Adams')`;
+    connection.query(sqlInsert, (err) => {
+        if (err) throw err;
+        console.log('Nome "Adams" inserido com sucesso!');
+    });
+});
 
 app.get('/', (req, res) => {
     const sql = "SELECT name FROM people"; 
